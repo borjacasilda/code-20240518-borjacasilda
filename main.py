@@ -28,8 +28,9 @@ def main():
         )
     alg_array = preprocessing_array(
         df=step_2_prep_df,
-        avoid_norm=AVOID_NORM),
-        #return_df=os.path.join(save_path, 'alg_array.csv')
+        avoid_norm=AVOID_NORM,
+        return_df=False,
+        #save_path=os.path.join(save_path, 'alg_array.csv')
         )
 
 if __name__ == '__main_':
