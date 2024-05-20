@@ -14,6 +14,7 @@ else:
 def main():
     df_parsed = expand_df(
         df_path=PATH,
+        sept=SEP
         s=SEP,
         #save_df=os.path.join(save_path, 'df_parsed.csv')
         ) 
