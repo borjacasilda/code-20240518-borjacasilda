@@ -1,8 +1,8 @@
 import pandas as pd
 
-def expand_df(df_path, s, save_df:os.path=None):
+def expand_df(df_path, s, sept=None, save_df=None):
     xplode_columns = []
-    df = pd.read_csv(df_path, sep=SEP)
+    df = pd.read_csv(df_path, sep=sept)
     for column in df.columns:
         for row, value in enumerate(df[column]):
             if isinstance(value, str) and s in value:
