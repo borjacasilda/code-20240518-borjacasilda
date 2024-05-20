@@ -2,7 +2,7 @@ from sklearn.preprocessing import LabelEncoder, StandardScaler
 import pandas as pd
 import numpy as np
 
-def preprocessing_array(df, avoid_norm, return_df=None):
+def preprocessing_array(df, avoid_norm, return_df=False, save_path=None):
     categorical_columns = []
     numerical_columns = []
     for column in df.columns:
@@ -23,7 +23,9 @@ def preprocessing_array(df, avoid_norm, return_df=None):
     df_transformed = pd.concat([transformed_subset, categorical_subset, numerical_subset], axis=1)
     df_transformed = df_transformed.astype(float)
     ml_array = df_transformed.to_numpy()
-    if return_df:
+    if save_path:
+        df_transformed.to_csv(save_path, index=False)   
+    if return_df:    
         return df_transformed
     else:
         return ml_array
