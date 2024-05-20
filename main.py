@@ -3,7 +3,7 @@ from save_output_dir import save_output_dir
 from expand_df import expand_df
 from transform_df import transform_df
 from preprocessing_array import preprocessing_array
-from definitions import SAVE_PATH_ROOT, SEP, PATH, DATE_COLUMNS, DROP_COLUMNS, DROP_ROWS, AVOID_NORM
+from definitions import SAVE_PATH_ROOT, SEP_CSV, SEP_DF, PATH, DATE_COLUMNS, DROP_COLUMNS, DROP_ROWS, AVOID_NORM
 
 save = False
 if save:
@@ -14,8 +14,8 @@ else:
 def main():
     df_parsed = expand_df(
         df_path=PATH,
-        sept=SEP
-        s=SEP,
+        sept=SEP_CSV,
+        s=SEP_DF,
         #save_df=os.path.join(save_path, 'df_parsed.csv')
         ) 
     df_trans = transform_df(
