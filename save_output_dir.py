@@ -7,7 +7,7 @@ def save_output_dir(root):
             os.makedirs(save_output_dir)
             return save_output_dir
         except OSError as e:
-            print(f'Check root: '{root}')
+            print(f'Check root: {root}')
             return None
         else:
             print(f'save_output_dir: {root}')
