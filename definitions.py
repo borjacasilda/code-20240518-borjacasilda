@@ -1,8 +1,9 @@
 import os
 
 SAVE_PATH_ROOT = os.path.dirname(os.path.abspath(__file__))
-SEP = '\t'
+SEP_CSV = '\t'
 PATH = r'<path_to_tsv_file_to_process>'
+SEP_DF = '|'
 DATE_COLUMNS = ['published_date', 'start_date', 'end_date_extension']
 DROP_COLUMNS = ['outcome', 'second_place_outcome', 'atc', 'sku', 'pack_strength', 'active_ingredient']
 DROP_ROWS = ['second_place_outcome']
