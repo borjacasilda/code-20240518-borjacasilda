@@ -10,5 +10,5 @@ def save_output_dir(root):
             print(f'Check root: {root}')
             return None
         else:
-            print(f'save_output_dir: {root}')
+            print(f'save_output_dir: {save_output_dir}')
             return save_output_dir
