@@ -2,7 +2,7 @@ from sklearn.preprocessing import LabelEncoder, StandardScaler
 import pandas as pd
 import numpy as np
 
-def preprocessing_array(df, avoid_norm, return_df=False, save_path=None):
+def preprocessing_array(df, avoid_norm, target, return_df=True, save_path=None):
     """
     Preprocesses a DataFrame by normalizing numerical columns, 
     encoding categorical columns, and returning the result as either a 
@@ -47,9 +47,8 @@ def preprocessing_array(df, avoid_norm, return_df=False, save_path=None):
             categorical_subset[column] = le.fit_transform(categorical_subset[column])
     # Concatenate all subsets
     df_transformed = pd.concat([transformed_subset, categorical_subset, numerical_subset], axis=1)
-    df_transformed = df_transformed.astype(float)  # Ensure all data is float type
-    # Convert DataFrame to NumPy array
-    ml_array = df_transformed.to_numpy()
+    # Ensure all data is float type
+    df_transformed = df_transformed.astype(float) 
     # Save the preprocessed DataFrame if save_path is provided
     if save_path:
         df_transformed.to_csv(save_path, index=False)
@@ -57,4 +56,17 @@ def preprocessing_array(df, avoid_norm, return_df=False, save_path=None):
     if return_df:
         return df_transformed
     else:
-        return ml_array
+        # empty list to store the numpy arrays
+        ml_arrays_list = []
+        # Creation of target variable numpy array
+        X = df_transformed[target].to_numpy()
+        # Append X to l_arrays_list
+        ml_arrays_list.append(X)
+        # Get the features without the target var
+        del df_transformed[target]
+        # Creattion of features arrays
+        y = df_transformed.to_numpy()
+        # Append y to l_arrays_list
+        ml_arrays_list.append(y)
+        return ml_arrays_list
+
