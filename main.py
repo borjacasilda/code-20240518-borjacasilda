@@ -8,7 +8,7 @@ import definitions
 # Flag to determine whether to save the processed DataFrames and arrays
 save = False
 if save:
-    save_path = save_output_dir(root=SAVE_PATH_ROOT)
+    save_path = save_output_dir(root=definitions.SAVE_PATH_ROOT)
 else:
     save_path = None
 
