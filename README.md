@@ -1,6 +1,6 @@
 # code-20240518-borjacasilda
 
-The proyect tries to meet the follow task:
+The proyect tries to meet the following task:
 
 "Please cleanse and provide validated "winner_price" data. This will be
 used in machine learning pipeline and winner_price is target variable,
