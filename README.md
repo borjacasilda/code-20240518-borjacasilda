@@ -84,11 +84,33 @@ the actions to be taken:
 - View the dimension of the dataset, columns and get general information 
 (df.info, df.shape,  
 
-
-
 ## 3. How would you improve this process long term and how would you build your roadmap?
+In the long term, I would begin by incorporating a correlation analysis for the columns, 
+which is an important step I overlooked initially. This will help us better understand 
+the relationships between variables. Additionally, I would work on standardizing the 
+second module, transform.py, to enhance its scalability across different datasets managed 
+by our team. This involves refining its architecture to ensure it can be easily adapted 
+for various data scenarios.
+Given the low number of observations in the current dataset, it would also be beneficial to 
+develop a process for generating synthetic observations. This synthetic data can be particularly 
+useful for training algorithms when dealing with sparse datasets, thereby improving the robustness 
+and reliability of our models.
 
 
 ## 4. Would you change anything if you would need to scale this process from a few SKU's to hundreds and thousands.
-
+Absolutely. Scaling the process from a few SKUs to hundreds or thousands requires several 
+adjustments. Firstly, I would retain the columns (All the columns that I identify as 
+contants, nvalues = 1, I dropped it) related to the product itself,  as we will be dealing 
+with multiple SKUs, each potentially having its own distinct optimal price. Additionally, 
+I would examine whether the SKU-related characteristics 
+in the dataset, such as the quantity of the active ingredient, provide valuable 
+information that can enhance our analysis.
+If the number of SKUs increases significantly, it may be necessary to add more features 
+to our dataset. In such cases, I would apply techniques like Principal Component Analysis 
+(PCA) or other dimensionality reduction algorithms to manage the increased complexity 
+efficiently. 
+Moreover, I would review the methods used to handle missing values (NaNs) to ensure they 
+remain appropriate as the dataset grows in size and complexity. By continuously evaluating 
+and adapting these aspects, we can maintain the accuracy and effectiveness of our process 
+as it scales.
 
