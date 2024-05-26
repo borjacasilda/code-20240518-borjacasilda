@@ -77,12 +77,30 @@ when targeting specific columns outside definitions and therefore not
 scalable to other processes. 
 
 ## 2. What manual tasks would you perform?
-
 The first thing to do is to make an eda to understand the peculiarities 
 of the dataset. Below I detail the tasks that were significant in determining 
 the actions to be taken:
 - View the dimension of the dataset, columns and get general information 
-(df.info, df.shape,  
+(df.info, df.shape, df.describe, df.column.unique, etc)
+- With Matplotlib (Or directly with Pandasor with Seaborn) create histograms 
+for the numerical columns (Basically all price dolumns) to get insigths about 
+the distribution of the columns, specially if doesn't follow a Normal distribution
+to apply Normalization techniques such Standard Scaler, min max, etc.
+- Perform assert df['column_price'].min() >= 0 to detect if there are negative
+values in the price coluns. I do this because there cannot be negative prices in 
+the columns containing prices, if so you have to see if a transformation can be 
+performed to correct it and if not eliminate them. This can be done with a 
+pandas mask too.
+- Apply over the columns a df['winner_price'].isnull().sum(), to determine the amount 
+of null values that there are per column to determine if we can fill the nan values
+with a value like the mean, or directly if there are a huge number of null´s, drop 
+the column.
+- Determine with the z-score (IQR can be applied too) the possible outliers to 
+see what to do wit them. If they are representative we can leave them, but if they are 
+not and they will mess up the distribution we should remove them. 
+It could also be determined with graphical representations through a violinplot or 
+a boxplot if we want to observe these outliers in a more graphical way.
+
 
 ## 3. How would you improve this process long term and how would you build your roadmap?
 In the long term, I would begin by incorporating a correlation analysis for the columns, 
